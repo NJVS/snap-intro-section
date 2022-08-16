@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- [LIVE DEMO]()
+- [LIVE DEMO](https://njvs.github.io/snap-intro-section/)
 
 ## My process
 
