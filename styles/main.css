@@ -306,6 +306,8 @@ main.main-container .container-overlay.active {
 main.main-container .attribution {
   position: absolute;
   bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 11px;
   font-weight: 500;
   text-align: center;
@@ -570,6 +572,7 @@ nav.navbar button.navbar-toggler .steak {
   margin-left: auto;
   width: auto;
   height: min(773px, 75vh);
+  object-fit: contain;
 }
 @media (max-width: 912px) {
   .hero .hero-image img {

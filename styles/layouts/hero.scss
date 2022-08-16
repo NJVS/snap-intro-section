@@ -87,6 +87,7 @@
       margin-left: auto;
       width: auto;
       height: min(773px, 75vh);
+      object-fit: contain;
 
       @include media-query('mobile', 'lg') {
         width: 100%;
