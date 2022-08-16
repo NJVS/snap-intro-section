@@ -1,0 +1,26 @@
+@use './variables' as *;
+@use './functions' as *;
+
+// hover
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// flexbox
+@mixin flexbox($align: flex-start, $justify: flex-start, $direction: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+// media query
+@mixin media-query($type, $size, $prefix: max) {
+  @media (#{$prefix}-width: deepMap($breakpoints, $type, $size)) {
+    @content;
+  }
+}

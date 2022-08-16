@@ -1,0 +1,47 @@
+@use '../helpers/functions' as *;
+@use '../helpers/variables' as *;
+
+
+// svg fill theme animation
+@keyframes fillTheme {
+  0% {
+    fill: deepMap($colors, 'theme', 'black');
+  }
+  20% {
+    fill: deepMap($colors, 'theme', 'purple');
+  }
+  40% {
+    fill: deepMap($colors, 'theme', 'yellow');
+  }
+  60% {
+    fill: deepMap($colors, 'theme', 'blue');
+  }
+  80% {
+    fill: deepMap($colors, 'theme', 'violet');
+  }
+  100% {
+    fill: deepMap($colors, 'theme', 'black');
+  }
+}
+
+// background theme animation
+@keyframes backgroundTheme {
+  0% {
+    background-color: deepMap($colors, 'theme', 'black');
+  }
+  20% {
+    background-color: deepMap($colors, 'theme', 'purple');
+  }
+  40% {
+    background-color: deepMap($colors, 'theme', 'yellow');
+  }
+  60% {
+    background-color: deepMap($colors, 'theme', 'blue');
+  }
+  80% {
+    background-color: deepMap($colors, 'theme', 'violet');
+  }
+  100% {
+    background-color: deepMap($colors, 'theme', 'black');
+  }
+}

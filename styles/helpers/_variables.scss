@@ -1,0 +1,29 @@
+$font-primary: Epilogue; // 500, 700
+
+$colors: (
+  'theme': (
+    'black': hsl(0, 0%, 8%),
+    'purple': hsl(277, 42%, 51%),
+    'yellow': hsl(53, 76%, 56%),
+    'blue': hsl(197, 66%, 57%),
+    'violet': hsl(243, 79%, 68%),
+  ),
+  'neutral': (
+    'black': hsl(0, 0%, 8%),
+    'gray': hsl(0, 0%, 41%),
+    'white': hsl(0, 0%, 98%),
+  )
+);
+
+$breakpoints: (
+  'desktop': (
+    'lg': 1920px,
+    'md': 1440px,
+    'sm': 1366px
+  ),
+  'mobile': (
+    'lg': 912px,
+    'md': 768px,
+    'sm': 426px
+  )
+);

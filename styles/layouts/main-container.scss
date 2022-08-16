@@ -1,0 +1,42 @@
+@use '../helpers/variables' as *;
+@use '../helpers/mixins' as *;
+@use '../helpers/functions' as *;
+
+main.main-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden !important;
+  background-color: deepMap($colors, 'neutral', 'white');
+  font-family: $font-primary;
+
+  > * {
+    width: min(1440px, 100%);
+    margin: auto;
+  }
+
+  .container-overlay {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    &.active {
+      z-index: 1;
+    }
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    a {
+      color: hsl(228, 45%, 44%);
+      font-weight: 700;
+    }
+  }
+
+}

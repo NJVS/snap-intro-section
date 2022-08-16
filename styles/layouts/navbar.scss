@@ -1,0 +1,201 @@
+@use '../helpers/variables'as *;
+@use '../helpers/mixins'as *;
+@use '../helpers/functions'as *;
+
+
+nav.navbar {
+  position: relative;
+  @include flexbox(center);
+  padding: 30px 40px;
+
+  .navbar-icon {
+    display: inline-flex;
+    margin-right: 65px;
+
+    //// mask-image only works on live-server idk why so i comment this out for now
+    // a {
+    //   display: inline-flex;
+    //   width: 85px;
+    //   height: 27px;
+    //   background-color: deepMap($colors, 'theme', 'black');
+    //   mask-image: url(../assets/svgs/logo.svg);
+    //   mask-repeat: no-repeat;
+    //   -webkit-mask-image: url(../assets/svgs/logo.svg);
+    //   -webkit-mask-repeat: no-repeat;
+    //   color: transparent;
+    //   animation: backgroundTheme 50s infinite;
+    // }
+
+    a {
+      display: inline-flex;
+      svg path {
+        animation: fillTheme 50s infinite;
+      }
+    }
+  }
+
+  .navbar-nav {
+    @include flexbox(center, space-between);
+    flex-grow: 1;
+
+    >ul {
+      display: flex;
+      gap: 30px;
+
+      li.nav-item {
+        transition: all 0.2s ease;
+
+        a.nav-link {
+          @include flexbox(center);
+          height: 100%;
+          text-decoration: none;
+          color: deepMap($colors, 'neutral', 'gray');
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+
+        @include hover {
+          &:not(.active) {
+            // disable this hover effect if dropdown is active 
+            transform: scale(1.05);
+
+            a.nav-link {
+              color: deepMap($colors, 'neutral', 'black');
+            }
+          }
+        }
+      }
+    }
+  }
+
+  button.navbar-toggler {
+    display: none;
+    position: relative;
+    padding: 0;
+    width: 50px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    z-index: 99;
+
+    &::before,
+    &::after,
+    .steak {
+      width: 30px;
+      height: 2px;
+      background-color: deepMap($colors, 'neutral', 'gray');
+      transition: all 0.2s ease;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::before {
+      margin-top: -10px;
+    }
+
+    &::after {
+      margin-top: 10px;
+    }
+
+    &.active {
+      .steak {
+        transform: translateX(-50%);
+        opacity: 0;
+      }
+
+      &::before,
+      &::after {
+        margin: 0;
+        background-color: deepMap($colors, 'neutral', 'black');
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+
+  @include media-query('mobile', 'lg') {
+    justify-content: space-between;
+
+    .navbar-icon {
+      margin-bottom: -5px;
+    }
+
+    .navbar-nav {
+      @include flexbox('center', flex-start, column);
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateX(100%);
+      visibility: hidden;
+      padding: 100px 50px 50px 50px;
+      width: 50%;
+      height: 100vh;
+      background-color: deepMap($colors, 'neutral', 'white');
+      z-index: 97;
+      transition: all 0.2s ease;
+
+      &.active {
+        transform: translateX(0);
+        visibility: visible;
+      }
+
+      >ul {
+        flex-direction: column;
+        width: 100%;
+
+        &:last-child {
+          margin-top: 50px;
+          text-align: center;
+
+          li {
+            justify-content: center;
+
+            a.nav-link {
+              display: block !important;
+
+              &.btn {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    button.navbar-toggler {
+      @include flexbox(center, center);
+    }
+  }
+
+  @include media-query('mobile', 'sm') {
+    margin-bottom: 16px;
+    padding: 16px;
+
+    .navbar-nav {
+      padding: 70px 25px 25px 25px;
+      width: 75%;
+    }
+
+    button.navbar-toggler {
+      &::before,
+      &::after,
+      .steak {
+        background-color: deepMap($colors, 'neutral', 'black');
+      }
+    }
+  }
+}
